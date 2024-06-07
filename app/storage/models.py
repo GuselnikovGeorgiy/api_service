@@ -1,7 +1,7 @@
 from typing import Optional
 
-from pydantic import BaseModel, Field, BaseConfig, IPvAnyAddress
-from datetime import datetime, timedelta
+from pydantic import BaseModel, Field
+from datetime import datetime
 
 
 class GeoPosition(BaseModel):
