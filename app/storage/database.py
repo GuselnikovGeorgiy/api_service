@@ -35,6 +35,11 @@ class MongoDBClient:
         result = await self._get_collection().insert_one(document)
         return {"id": str(result.inserted_id)}
 
+    async def insert_many_user_data(self, user_data: list[UserDataInsert]) -> list[dict]:
+        documents = [calculate_connection_duration(user_data) for user_data in user_data]
+        result = await self._get_collection().insert_many(documents)
+        return [{"id": str(document_id)} for document_id in result.inserted_ids]
+
 
 db_client = MongoDBClient(
     mongo_db_client=AsyncIOMotorClient("mongodb://mongodb:27017", serverSelectionTimeoutMS=3000),
