@@ -5,7 +5,9 @@ services:
     container_name: mongodb-storage
     image: mongo:6-jammy
     ports:
-      - 127.0.0.1:27017:27017
+      - ${DB_HOST}:${DB_PORT}:27017
+    env_file:
+      - ../.env
     volumes:
       - dbdata6:/data/db
     networks:
@@ -16,7 +18,9 @@ services:
     container_name: mongo-express
     restart: always
     ports:
-      - 127.0.0.1:28081:8081
+      - ${MONGO_EXPRESS_HOST}:${MONGO_EXPRESS_PORT}:8081
+    env_file:
+      - ../.env
     environment:
       ME_CONFIG_MONGODB_SERVER: mongodb
       ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_DB_ADMIN_USERNAME}
