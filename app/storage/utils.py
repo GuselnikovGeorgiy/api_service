@@ -66,5 +66,9 @@ def split_query(filter_params: dict) -> dict:
 
 def calculate_connection_duration(document: dict) -> dict:
     if "connect_time" in document and "disconnect_time" in document:
+        if isinstance(document["connect_time"], str):
+            document["connect_time"] = datetime.fromisoformat(document["connect_time"])
+        if isinstance(document["disconnect_time"], str):
+            document["disconnect_time"] = datetime.fromisoformat(document["disconnect_time"])
         document["connection_duration"] = (document["disconnect_time"] - document["connect_time"]).total_seconds()
     return document
