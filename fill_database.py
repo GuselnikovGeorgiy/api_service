@@ -7,7 +7,7 @@ async def fill_database(file: str):
     with open(file, "r") as f:
         user_data = json.load(f)
 
-    res = await db_client.insert_many_user_data(user_data)
+    res = await db_client.insert_from_json_file(user_data)
     return res
 
 
