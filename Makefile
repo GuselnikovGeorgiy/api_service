@@ -5,6 +5,7 @@ ENV = --env-file .env
 APP_FILE = docker_compose/app.yaml
 STORAGE_FILE = docker_compose/storage.yaml
 APP_CONTAINER = main-app
+STORAGE_CONTAINER = mongodb-storage
 
 .PHONY: app
 app:
@@ -37,6 +38,10 @@ app-shell:
 .PHONY: app-logs
 app-logs:
 	${LOGS} ${APP_CONTAINER} -f
+
+.PHONY: storage-logs
+storage-logs:
+	${LOGS} ${STORAGE_CONTAINER} -f
 
 #.PHONY: test
 #test:
