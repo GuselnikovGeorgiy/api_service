@@ -43,6 +43,14 @@ class MongoDBClient:
         result = await self._get_collection().insert_many(documents)
         return [{"id": str(document_id)} for document_id in result.inserted_ids]
 
+    async def insert_from_json_file(self, user_data: list[dict]) -> list[dict]:
+        validated_data = validate_json_data(user_data)
+        documents = [calculate_connection_duration(user_data) for user_data in validated_data]
+        for document in documents:
+            document['ip_address'] = str(document['ip_address'])
+        result = await self._get_collection().insert_many(documents)
+        return [{"id": str(document_id)} for document_id in result.inserted_ids]
+
 
 db_client = MongoDBClient(
     mongo_db_client=AsyncIOMotorClient("mongodb://mongodb:27017", serverSelectionTimeoutMS=3000),
