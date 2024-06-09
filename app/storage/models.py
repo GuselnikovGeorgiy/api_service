@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, IPvAnyAddress
 from datetime import datetime
 
 
@@ -15,7 +15,7 @@ class TimeOnPage(BaseModel):
 
 
 class UserDataInsert(BaseModel):
-    ip_address: str = Field(..., description="IP")
+    ip_address: IPvAnyAddress = Field(..., description="IP")
     user_agent: str = Field(..., description="User Agent")
     screen_resolution: str = Field(..., description="Разрешение экрана")
     window_resolution: str = Field(..., description="Разрешение окна браузера")
@@ -69,4 +69,3 @@ example_data = {
         "https://example.com/contact"
     ]
 }
-
