@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorCollection
 
 from app.storage.models import UserDataGet, UserDataInsert
-from app.storage.utils import split_query, calculate_connection_duration
+from app.storage.utils import split_query, calculate_connection_duration, validate_json_data
 
 
 @dataclass
@@ -16,11 +16,8 @@ class MongoDBClient:
 
     async def find_user_data(self, filter_params: dict) -> list[UserDataGet]:
         limit = filter_params.get("limit")
-
         filter_query = split_query(filter_params)
-
         cursor = self._get_collection().find(filter_query)
-
         if limit is not None:
             cursor = cursor.limit(limit)
         result = await cursor.to_list(length=None)
@@ -31,12 +28,18 @@ class MongoDBClient:
 
     async def insert_user_data(self, user_data: UserDataInsert) -> dict:
         document = user_data.dict()
+        document['ip_address'] = str(document['ip_address'])
         document = calculate_connection_duration(document)
         result = await self._get_collection().insert_one(document)
         return {"id": str(result.inserted_id)}
 
-    async def insert_many_user_data(self, user_data: list[UserDataInsert]) -> list[dict]:
-        documents = [calculate_connection_duration(user_data) for user_data in user_data]
+    async def insert_list_of_user_data(self, user_data: list[UserDataInsert]) -> list[dict]:
+        documents = []
+        for document in user_data:
+            document = document.dict()
+            document['ip_address'] = str(document['ip_address'])
+            documents.append(calculate_connection_duration(document))
+
         result = await self._get_collection().insert_many(documents)
         return [{"id": str(document_id)} for document_id in result.inserted_ids]
 
