@@ -8,3 +8,10 @@ class ApplicationException(Exception):
         return "Произошла ошибка приложения."
 
 
+@dataclass
+class BadDataException(ApplicationException):
+    errors: dict
+
+    @property
+    def message(self) -> str:
+        return "Данные некорректны."
