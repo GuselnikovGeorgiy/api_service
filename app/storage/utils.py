@@ -1,5 +1,9 @@
 from datetime import datetime
 
+from pydantic import ValidationError
+
+from app.storage.models import UserDataInsert
+
 
 def split_query(filter_params: dict) -> dict:
     filter_query = {}
@@ -23,7 +27,7 @@ def split_query(filter_params: dict) -> dict:
     if user_agent:
         filter_query["user_agent"] = {"$regex": user_agent, "$options": "i"}
     if os_info:
-        filter_query["os_info"] = os_info
+        filter_query["os_info"] = {"$regex": os_info, "$options": "i"}
     if min_longitude is not None or max_longitude is not None:
         filter_query["geo_position.longitude"] = {}
         if min_longitude is not None:
@@ -71,4 +75,17 @@ def calculate_connection_duration(document: dict) -> dict:
         if isinstance(document["disconnect_time"], str):
             document["disconnect_time"] = datetime.fromisoformat(document["disconnect_time"])
         document["connection_duration"] = (document["disconnect_time"] - document["connect_time"]).total_seconds()
+    else:
+        document["connection_duration"] = None
     return document
+
+
+def validate_json_data(raw_data: list[dict]) -> list[dict]:
+    validated_data = []
+    for data in raw_data:
+        try:
+            validated_data.append(UserDataInsert(**data).dict())
+        except ValidationError as e:
+            print(f"Ошибка валидации данных {data}: {e}")
+            continue
+    return validated_data
