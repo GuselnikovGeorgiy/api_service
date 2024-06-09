@@ -10,15 +10,36 @@ router = APIRouter(tags=['Storage'], prefix="/user_data")
 
 
 @router.get(
-    "/user_data",
+    "/",
     status_code=status.HTTP_200_OK,
     description="Эндпоинт для получения записей из базы данных по параметрам фильтрации",
 )
 async def get_filtered_user_data(
         filter_params: UserDataFilter = Depends(),
 ) -> list[UserDataGet]:
-    filter_query = filter_params.dict(exclude_none=True)
-    return await db_client.find_user_data(filter_query)
+    try:
+        _ = validate_fetch_params(
+            filter_params.ip_address,
+            filter_params.min_longitude,
+            filter_params.max_longitude,
+            filter_params.min_latitude,
+            filter_params.max_latitude,
+            filter_params.connect_time_from,
+            filter_params.connect_time_to,
+            filter_params.disconnect_time_from,
+            filter_params.disconnect_time_to,
+            filter_params.connection_duration_from,
+            filter_params.connection_duration_to,
+            filter_params.limit,
+        )
+    except BadDataException as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=e.errors,
+        )
+    else:
+        filter_query = filter_params.dict(exclude_none=True)
+        return await db_client.find_user_data(filter_query)
 
 
 @router.post(
