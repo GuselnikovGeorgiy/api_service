@@ -13,6 +13,7 @@ router = APIRouter(tags=['Storage'], prefix="/user_data")
     "/",
     status_code=status.HTTP_200_OK,
     description="Эндпоинт для получения записей из базы данных по параметрам фильтрации",
+    summary="Получить список пользователей по фильтрам",
 )
 async def get_filtered_user_data(
         filter_params: UserDataFilter = Depends(),
@@ -46,6 +47,7 @@ async def get_filtered_user_data(
     "/",
     status_code=status.HTTP_201_CREATED,
     description="Эндпоинт для добавления записей в базу данных",
+    summary="Добавить запись в базу данных",
 )
 async def insert_user_data(user_data: UserDataInsert) -> dict:
     return await db_client.insert_user_data(user_data)
@@ -55,6 +57,7 @@ async def insert_user_data(user_data: UserDataInsert) -> dict:
     "/list",
     status_code=status.HTTP_201_CREATED,
     description="Эндпоинт для добавления нескольких записей в базу данных",
+    summary="Добавить список записей в базу данных",
 )
 async def insert_list_of_user_data(user_data: list[UserDataInsert]) -> list[dict]:
     return await db_client.insert_list_of_user_data(user_data)
