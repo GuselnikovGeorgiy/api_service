@@ -1,10 +1,12 @@
-from fastapi import APIRouter, status, Depends
+from fastapi import APIRouter, status, Depends, HTTPException
 
 from app.storage.database import db_client
+from app.storage.exceptions import BadDataException
 from app.storage.models import UserDataInsert, UserDataGet
 from app.storage.schemas import UserDataFilter
+from app.storage.services import validate_fetch_params
 
-router = APIRouter()
+router = APIRouter(tags=['Storage'], prefix="/user_data")
 
 
 @router.get(
@@ -20,10 +22,18 @@ async def get_filtered_user_data(
 
 
 @router.post(
-    "/user_data",
+    "/",
     status_code=status.HTTP_201_CREATED,
     description="Эндпоинт для добавления записей в базу данных",
 )
 async def insert_user_data(user_data: UserDataInsert) -> dict:
     return await db_client.insert_user_data(user_data)
 
+
+@router.post(
+    "/list",
+    status_code=status.HTTP_201_CREATED,
+    description="Эндпоинт для добавления нескольких записей в базу данных",
+)
+async def insert_list_of_user_data(user_data: list[UserDataInsert]) -> list[dict]:
+    return await db_client.insert_list_of_user_data(user_data)
