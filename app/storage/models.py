@@ -15,18 +15,18 @@ class TimeOnPage(BaseModel):
 
 
 class UserDataInsert(BaseModel):
-    ip_address: IPvAnyAddress = Field(..., description="IP")
-    user_agent: str = Field(..., description="User Agent")
-    screen_resolution: str = Field(..., description="Разрешение экрана")
-    window_resolution: str = Field(..., description="Разрешение окна браузера")
-    pixels_per_inch: int = Field(..., description="PPI")
-    os_info: str = Field(..., description="Операционная система")
-    geo_position: Optional[GeoPosition] = Field(None, description="Геопозиция")
-    cookies: dict = Field(..., description="Информация из cookie")
-    connect_time: datetime = Field(..., description="Время подключения")
-    disconnect_time: datetime = Field(..., description="Время отключения")
-    page_views: list[TimeOnPage] = Field(..., description="Время, проведенное на странице")
-    navigation_history: list[str] = Field(..., description="История переходов между страницами")
+    ip_address: IPvAnyAddress | None = Field(..., description="IP")
+    user_agent: str | None = Field(..., description="User Agent")
+    screen_resolution: str | None = Field(..., description="Разрешение экрана")
+    window_resolution: str | None = Field(..., description="Разрешение окна браузера")
+    pixels_per_inch: int | None = Field(..., description="PPI")
+    os_info: str | None = Field(..., description="Операционная система")
+    geo_position: Optional[GeoPosition] | None = Field(None, description="Геопозиция")
+    cookies: dict | None = Field(..., description="Информация из cookie")
+    connect_time: datetime | None = Field(..., description="Время подключения")
+    disconnect_time: datetime | None = Field(..., description="Время отключения")
+    page_views: list[TimeOnPage] | None = Field(..., description="Время, проведенное на странице")
+    navigation_history: list[str] | None = Field(..., description="История переходов между страницами")
 
 
 class UserDataGet(UserDataInsert):
