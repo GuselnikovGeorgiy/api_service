@@ -1,4 +1,4 @@
-name: Storage API deploy
+name: FastAPI Deployment
 
 on:
   push:
@@ -22,7 +22,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: GuselnikovGeorgiy/api_service:latest
+          tags: GuselnikovGeorgiy/api-service:latest
 
-      - name: Deploy with Docker Compose
+      - name: Copy .env file
+        run: cp .env.example .env
+
+      - name: Run Makefile
         run: make all
