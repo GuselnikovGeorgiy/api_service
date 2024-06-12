@@ -17,7 +17,7 @@ router = APIRouter(tags=['Storage'], prefix="/user_data")
 )
 async def get_filtered_user_data(
         filter_params: UserDataFilter = Depends(),
-) -> list[UserDataGet]:
+) -> list[dict]:
     try:
         _ = validate_fetch_params(
             filter_params.ip_address,
