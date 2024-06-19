@@ -19,7 +19,7 @@ class UserDataInsert(BaseModel):
     user_agent: str | None = Field(..., description="User Agent")
     screen_resolution: str | None = Field(..., description="Разрешение экрана")
     window_resolution: str | None = Field(..., description="Разрешение окна браузера")
-    pixels_per_inch: int | None = Field(..., description="PPI")
+    dots_per_inch: int | None = Field(..., description="Точек на дюйм (DPI)")
     os_info: str | None = Field(..., description="Операционная система")
     geo_position: Optional[GeoPosition] | None = Field(None, description="Геопозиция")
     cookies: dict | None = Field(..., description="Информация из cookie")
@@ -39,7 +39,7 @@ example_data = {
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "screen_resolution": "1920x1080",
     "window_resolution": "1024x768",
-    "pixels_per_inch": 96,
+    "dots_per_inch": 96,
     "os_info": "Windows 10",
     "geo_position": {
         "latitude": 55.7558,

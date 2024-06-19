@@ -87,11 +87,11 @@ def validate_limit(limit: int) -> list[str]:
     return errors
 
 
-# def validate_ppi(ppi: int) -> list[str]:
+# def validate_dpi(ppi: int) -> list[str]:
 #     errors = []
 #
 #     if ppi is not None and ppi <= 0:
-#         errors.append('PPI должен быть положительным числом.')
+#         errors.append('DPI должен быть положительным числом.')
 #     return errors
 
 
