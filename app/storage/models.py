@@ -27,6 +27,7 @@ class UserDataInsert(BaseModel):
     disconnect_time: datetime | None = Field(..., description="Время отключения")
     page_views: list[TimeOnPage] | None = Field(..., description="Время, проведенное на странице")
     navigation_history: list[str] | None = Field(..., description="История переходов между страницами")
+    session_id: str | None = Field(..., description="ID сессии")
 
 
 class UserDataGet(UserDataInsert):
@@ -46,7 +47,7 @@ example_data = {
         "longitude": 37.6176
     },
     "cookies": {
-        "session_id": "abc123",
+        "user_id": "abc123",
         "preferences": {
             "theme": "dark"
         }
@@ -67,5 +68,6 @@ example_data = {
         "https://example.com/home",
         "https://example.com/about",
         "https://example.com/contact"
-    ]
+    ],
+    "session_id": "123abcdef456"
 }

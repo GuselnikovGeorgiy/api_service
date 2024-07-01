@@ -107,6 +107,7 @@ def validate_fetch_params(
     disconnect_time_to: datetime | None = None,
     connection_duration_from: int | None = None,
     connection_duration_to: int | None = None,
+    session_id: str | None = None,
     limit: int | None = None
 ) -> bool:
     errors = defaultdict(list)

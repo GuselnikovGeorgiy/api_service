@@ -31,6 +31,7 @@ async def get_filtered_user_data(
             filter_params.disconnect_time_to,
             filter_params.connection_duration_from,
             filter_params.connection_duration_to,
+            filter_params.session_id,
             filter_params.limit,
         )
     except BadDataException as e:

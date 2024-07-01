@@ -21,6 +21,7 @@ def split_query(filter_params: dict) -> dict:
     disconnect_time_to = filter_params.get("disconnect_time_to")
     connection_duration_from = filter_params.get("connection_duration_from")
     connection_duration_to = filter_params.get("connection_duration_to")
+    session_id = filter_params.get("session_id")
 
     if ip_address:
         filter_query["ip_address"] = ip_address
@@ -64,6 +65,8 @@ def split_query(filter_params: dict) -> dict:
         if "connection_duration" not in filter_query:
             filter_query["connection_duration"] = {}
         filter_query["connection_duration"]["$lte"] = connection_duration_to
+    if session_id:
+        filter_query["session_id"] = session_id
 
     return filter_query
 

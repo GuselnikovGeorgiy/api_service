@@ -8,7 +8,7 @@
         "os_info": "Windows 10",
         "geo_position": {
             "latitude": 40.7128,
-            "longitude": -74.0060
+            "longitude": -74.006
         },
         "cookies": {
             "session_id": "abc123",
@@ -32,7 +32,8 @@
             "https://example.com/home",
             "https://example.com/about",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "f73fd217-e7fa-4a27-adc6-240330c2d614"
     },
     {
         "ip_address": "198.51.100.2",
@@ -67,7 +68,8 @@
             "https://example.com/home",
             "https://example.com/products",
             "https://example.com/cart"
-        ]
+        ],
+        "session_id": "cabc3441-95e7-4603-b29d-53ee140e7ee0"
     },
     {
         "ip_address": "203.0.113.3",
@@ -102,7 +104,8 @@
             "https://example.com/home",
             "https://example.com/blog",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "c6e372df-5e20-4dcf-a80a-cf6ba37f77a3"
     },
     {
         "ip_address": "198.51.100.4",
@@ -137,7 +140,8 @@
             "https://example.com/home",
             "https://example.com/shop",
             "https://example.com/checkout"
-        ]
+        ],
+        "session_id": "20fddfb3-982b-445e-b548-853ea23e7447"
     },
     {
         "ip_address": "203.0.113.5",
@@ -147,8 +151,8 @@
         "dots_per_inch": 101,
         "os_info": "Windows 10",
         "geo_position": {
-            "latitude": 52.5200,
-            "longitude": 13.4050
+            "latitude": 52.52,
+            "longitude": 13.405
         },
         "cookies": {
             "session_id": "mno345",
@@ -172,7 +176,8 @@
             "https://example.com/home",
             "https://example.com/services",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "a8e1dca9-130c-4629-b822-8fd1054ed74a"
     },
     {
         "ip_address": "198.51.100.6",
@@ -207,7 +212,8 @@
             "https://example.com/home",
             "https://example.com/portfolio",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "f8cd4ea9-46ba-4066-88e0-5135b104d848"
     },
     {
         "ip_address": "203.0.113.7",
@@ -242,7 +248,8 @@
             "https://example.com/home",
             "https://example.com/about",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "3b27deeb-54e1-41b2-838f-e1a770f5c3bd"
     },
     {
         "ip_address": "198.51.100.8",
@@ -277,7 +284,8 @@
             "https://example.com/home",
             "https://example.com/blog",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "4be47210-d77b-44b8-83bc-8306695ba637"
     },
     {
         "ip_address": "203.0.113.9",
@@ -312,7 +320,8 @@
             "https://example.com/home",
             "https://example.com/services",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "7b3231f2-dd9f-4eca-84b1-de42385045ae"
     },
     {
         "ip_address": "198.51.100.10",
@@ -347,7 +356,8 @@
             "https://example.com/home",
             "https://example.com/shop",
             "https://example.com/checkout"
-        ]
+        ],
+        "session_id": "ddb13b6e-73e0-46f4-9415-a1a9fb21bdc8"
     },
     {
         "ip_address": "203.0.113.1",
@@ -382,7 +392,8 @@
             "https://example.com/shop",
             "https://example.com/cart",
             "https://example.com/checkout"
-        ]
+        ],
+        "session_id": "af5aa21a-9e07-4a3e-a55e-7fc7cf40b4c1"
     },
     {
         "ip_address": "198.51.100.2",
@@ -393,7 +404,7 @@
         "os_info": "Windows 10",
         "geo_position": {
             "latitude": 40.7128,
-            "longitude": -74.0060
+            "longitude": -74.006
         },
         "cookies": {
             "session_id": "def456",
@@ -416,7 +427,8 @@
         "navigation_history": [
             "https://example.com/blog",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "1d9aab57-104a-4df3-a168-a37d406aae78"
     },
     {
         "ip_address": "192.0.2.3",
@@ -450,7 +462,8 @@
         "navigation_history": [
             "https://example.com/profile",
             "https://example.com/settings"
-        ]
+        ],
+        "session_id": "2d87b1c4-4b3a-4c71-97f9-1c190447de80"
     },
     {
         "ip_address": "203.0.113.4",
@@ -485,7 +498,8 @@
             "https://example.com/products",
             "https://example.com/reviews",
             "https://example.com/faq"
-        ]
+        ],
+        "session_id": "3aca19f9-fcea-4d34-a358-340cb6323bd0"
     },
     {
         "ip_address": "198.51.100.5",
@@ -520,7 +534,8 @@
             "https://example.com/news",
             "https://example.com/gallery",
             "https://example.com/about"
-        ]
+        ],
+        "session_id": "8b1e64a2-b382-401b-a444-3364699e4b59"
     },
     {
         "ip_address": "203.0.113.6",
@@ -555,7 +570,8 @@
             "https://example.com/home",
             "https://example.com/services",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "8bf918d9-3977-49fe-9dc5-9fd8826e2f7b"
     },
     {
         "ip_address": "198.51.100.7",
@@ -589,7 +605,8 @@
         "navigation_history": [
             "https://example.com/about",
             "https://example.com/services"
-        ]
+        ],
+        "session_id": "8ca352ae-dfb8-4543-a7aa-8196da158377"
     },
     {
         "ip_address": "203.0.113.8",
@@ -624,7 +641,8 @@
             "https://example.com/home",
             "https://example.com/products",
             "https://example.com/cart"
-        ]
+        ],
+        "session_id": "3707256d-accd-4d7a-a287-830d0a138ce8"
     },
     {
         "ip_address": "198.51.100.9",
@@ -659,7 +677,8 @@
             "https://example.com/shop",
             "https://example.com/cart",
             "https://example.com/checkout"
-        ]
+        ],
+        "session_id": "742154f2-39cb-4724-979c-44c84a3f6a11"
     },
     {
         "ip_address": "203.0.113.10",
@@ -670,7 +689,7 @@
         "os_info": "Windows 10",
         "geo_position": {
             "latitude": 40.7128,
-            "longitude": -74.0060
+            "longitude": -74.006
         },
         "cookies": {
             "session_id": "abc1234",
@@ -693,6 +712,7 @@
         "navigation_history": [
             "https://example.com/home",
             "https://example.com/contact"
-        ]
+        ],
+        "session_id": "6c348d0d-b4c2-4344-a20a-61e3e7492128"
     }
 ]
